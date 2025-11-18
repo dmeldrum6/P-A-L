@@ -1,0 +1,29 @@
+# Node modules (if icon generation script is used)
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# Build artifacts (if any)
+dist/
+build/
+
+# Generated icons (tracked in git, but can be regenerated)
+# Uncomment if you want to ignore generated PNGs:
+# icons/icon16.png
+# icons/icon48.png
+# icons/icon128.png
