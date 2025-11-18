@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P-A-L Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+      color: #e0e0e0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .help-text {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #e0e0e0;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      transition: all 0.2s;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #8b5cf6;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e0e0e0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .status-message {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .status-message.success {
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+      display: block;
+    }
+
+    .status-message.error {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      display: block;
+    }
+
+    .presets {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .preset-btn {
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: rgba(139, 92, 246, 0.3);
+      border-color: #8b5cf6;
+    }
+
+    .info-box {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 30px;
+    }
+
+    .info-box h3 {
+      color: #93c5fd;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .info-box p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🤖 P-A-L Settings</h1>
+    <p class="subtitle">Configure your Personal AI Listener</p>
+
+    <div class="info-box">
+      <h3>Getting Started</h3>
+      <p>P-A-L works with any OpenAI-compatible API. You can use OpenAI, or local models via LM Studio, Ollama, or other providers. Enter your API credentials below to get started.</p>
+    </div>
+
+    <form id="settings-form">
+      <div class="form-group">
+        <label for="apiUrl">API Endpoint URL</label>
+        <input
+          type="text"
+          id="apiUrl"
+          placeholder="https://api.openai.com/v1/chat/completions"
+          required
+        />
+        <p class="help-text">The chat completions endpoint for your LLM provider</p>
+        <div class="presets">
+          <button type="button" class="preset-btn" data-url="https://api.openai.com/v1/chat/completions">OpenAI</button>
+          <button type="button" class="preset-btn" data-url="http://localhost:1234/v1/chat/completions">LM Studio</button>
+          <button type="button" class="preset-btn" data-url="http://localhost:11434/v1/chat/completions">Ollama</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="apiKey">API Key</label>
+        <input
+          type="password"
+          id="apiKey"
+          placeholder="sk-..."
+          required
+        />
+        <p class="help-text">Your API key (leave as "none" for local models that don't require authentication)</p>
+      </div>
+
+      <div class="form-group">
+        <label for="model">Model Name</label>
+        <input
+          type="text"
+          id="model"
+          placeholder="gpt-3.5-turbo"
+          required
+        />
+        <p class="help-text">The model to use (e.g., gpt-3.5-turbo, gpt-4, llama-3, etc.)</p>
+      </div>
+
+      <div class="form-group">
+        <label for="systemPrompt">System Prompt (AI Personality)</label>
+        <textarea
+          id="systemPrompt"
+          placeholder="You are a sarcastic but friendly AI buddy..."
+        ></textarea>
+        <p class="help-text">Customize your AI buddy's personality. The default makes it sarcastic and conversational.</p>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn-primary">Save Settings</button>
+        <button type="button" id="reset-btn" class="btn-secondary">Reset to Defaults</button>
+      </div>
+
+      <div id="status" class="status-message"></div>
+    </form>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
