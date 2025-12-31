@@ -50,28 +50,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: background 0.2s;
 }
 
 #pal-toggle:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* When sidebar is minimized, position toggle button on the edge */
-#pal-sidebar.minimized #pal-toggle {
+/* Restore button - shown when sidebar is minimized */
+#pal-restore {
   position: fixed;
   right: 0;
   top: 15px;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3);
-  z-index: 2147483647;
-  border-radius: 8px 0 0 8px;
+  border: none;
+  color: white;
   width: 40px;
   height: 50px;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2147483647;
+  transition: all 0.3s ease;
 }
 
-#pal-sidebar.minimized #pal-toggle:hover {
+#pal-restore:hover {
   background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
   transform: translateX(-5px);
 }

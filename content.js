@@ -33,6 +33,14 @@
     `;
     document.body.appendChild(sidebar);
 
+    // Create restore button (separate from sidebar, initially hidden)
+    const restoreBtn = document.createElement('button');
+    restoreBtn.id = 'pal-restore';
+    restoreBtn.title = 'Restore P-A-L';
+    restoreBtn.textContent = '+';
+    restoreBtn.style.display = 'none';
+    document.body.appendChild(restoreBtn);
+
     // Add body margin to prevent content overlap
     document.body.style.marginRight = '350px';
     document.body.style.transition = 'margin-right 0.3s ease';
@@ -45,6 +53,7 @@
     const sendBtn = document.getElementById('pal-send');
     const input = document.getElementById('pal-input');
     const toggleBtn = document.getElementById('pal-toggle');
+    const restoreBtn = document.getElementById('pal-restore');
 
     sendBtn.addEventListener('click', sendMessage);
     input.addEventListener('keypress', (e) => {
@@ -55,6 +64,7 @@
     });
 
     toggleBtn.addEventListener('click', toggleSidebar);
+    restoreBtn.addEventListener('click', toggleSidebar);
 
     // Monitor page inputs
     document.addEventListener('input', handlePageInput);
@@ -81,17 +91,20 @@
   function toggleSidebar() {
     const sidebar = document.getElementById('pal-sidebar');
     const toggleBtn = document.getElementById('pal-toggle');
+    const restoreBtn = document.getElementById('pal-restore');
 
     if (sidebar.classList.contains('minimized')) {
       sidebar.classList.remove('minimized');
       document.body.style.marginRight = '350px';
       toggleBtn.textContent = '−';
       toggleBtn.title = 'Minimize';
+      restoreBtn.style.display = 'none';
     } else {
       sidebar.classList.add('minimized');
       document.body.style.marginRight = '0';
       toggleBtn.textContent = '+';
       toggleBtn.title = 'Expand';
+      restoreBtn.style.display = 'flex';
     }
   }
 
