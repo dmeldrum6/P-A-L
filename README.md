@@ -13,7 +13,6 @@ P-A-L is a browser extension that adds a vertical chat sidebar to every webpage 
 - **OpenAI-Compatible**: Works with OpenAI, LM Studio, Ollama, or any OpenAI-compatible API
 - **Privacy-Focused**: All data stays between you and your chosen LLM provider
 - **Customizable**: Adjust the AI's personality through custom system prompts
-- **Beautiful UI**: Modern gradient design with smooth animations
 
 ## 🚀 Installation
 
