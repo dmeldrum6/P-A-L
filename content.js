@@ -9,7 +9,7 @@
   window.palInjected = true;
 
   let conversationHistory = [];
-  let lastUrl = window.location.href;
+  let lastUrl = ''; // Initialize empty so first page load is announced
   let typingTimeout = null;
   let lastTypedText = '';
 
