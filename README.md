@@ -24,9 +24,8 @@ P-A-L is a browser extension that adds a vertical chat sidebar to every webpage 
    cd P-A-L
    ```
 
-2. **Generate icons** (optional but recommended)
+2. **Generate icons**
    - See `icons/README.md` for instructions
-   - The extension works without custom icons (will use browser default)
 
 3. **Load the extension**
    - Open Chrome and go to `chrome://extensions/`
@@ -122,25 +121,6 @@ You are a cybersecurity expert who is constantly worried about the user's online
 3. **Manual Chat**: You can always type messages directly to chat with your AI buddy
 4. **Context Memory**: P-A-L remembers the last 20 messages of your conversation
 
-## 🎨 Features in Detail
-
-### Sidebar Interface
-- **Minimize/Expand**: Click the `−` button to hide the sidebar (saves screen space)
-- **Responsive**: Automatically adjusts to your viewport size
-- **Beautiful Design**: Modern purple gradient theme with smooth animations
-
-### Privacy & Data
-- No data is sent to P-A-L developers
-- All communication goes directly to your configured LLM provider
-- Conversation history stored locally in your browser
-- API keys stored securely in browser's sync storage
-
-### Performance
-- Lightweight content script (~10KB)
-- Minimal performance impact on page load
-- Debounced typing detection (won't spam the API)
-- Smart conversation history management
-
 ## 🛠️ Development
 
 ### Project Structure
@@ -192,30 +172,9 @@ Some local model servers need CORS enabled:
 - **LM Studio**: Enable CORS in server settings
 - **Ollama**: May need to run with `OLLAMA_ORIGINS=* ollama serve`
 
-## 🎯 Tips for Best Experience
-
-1. **Choose the Right Model**:
-   - For speed: Use GPT-3.5-turbo or small local models
-   - For quality: Use GPT-4 or larger local models
-   - For privacy: Use local models (LM Studio/Ollama)
-
-2. **Customize the Personality**: Experiment with different system prompts to find your perfect buddy
-
-3. **Manage Costs**: If using OpenAI, monitor your API usage. P-A-L limits responses to 150 tokens by default
-
-4. **Use the Minimize Button**: Hide the sidebar when you need full screen space
-
 ## 📝 License
 
 MIT License - Feel free to modify and share!
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest features
-- Submit pull requests
-- Share your custom personality prompts
 
 ## ⚠️ Disclaimer
 
@@ -224,7 +183,3 @@ This extension monitors your browsing activity and sends data to your configured
 ## 🎉 Enjoy!
 
 Have fun browsing with your new AI buddy! If you enjoy P-A-L, consider sharing it with friends or starring the repository.
-
----
-
-Made with 💜 by the open-source community
