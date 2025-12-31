@@ -3,6 +3,7 @@
 Your sarcastic AI buddy that comments on your browsing and engages you in conversation!
 
 P-A-L is a browser extension that adds a vertical chat sidebar to every webpage you visit. As you browse the web, your AI companion watches what you're doing and strikes up witty, engaging conversations about your online adventures.
+<img width="361" height="910" alt="image" src="https://github.com/user-attachments/assets/1e3c661a-5107-40f3-9bf8-a9d2866b688d" />
 
 ## ✨ Features
 
