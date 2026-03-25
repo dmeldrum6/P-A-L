@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>P-A-L Settings</title>
   <style>
+    :root {
+      --primary: #6366f1;
+      --accent: #8b5cf6;
+      --bg: #09090f;
+      --surface: #111120;
+      --surface-2: #18182c;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-2: rgba(255, 255, 255, 0.12);
+      --text: #f0f0f8;
+      --text-2: #8888a8;
+      --text-3: #50506a;
+      --green: #22c55e;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --radius: 10px;
+      --radius-lg: 14px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,255 +30,360 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
-      color: #e0e0e0;
-      padding: 40px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
+      padding: 32px 20px 48px;
+      font-size: 14px;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-      color: #fff;
-      margin-bottom: 10px;
-      font-size: 32px;
+    /* ── Page header ── */
+    .page-header {
+      max-width: 720px;
+      margin: 0 auto 28px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .subtitle {
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 40px;
-      font-size: 16px;
+    .header-logo {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+      flex-shrink: 0;
     }
 
+    .header-text h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.4px;
+    }
+
+    .header-text p {
+      font-size: 13px;
+      color: var(--text-2);
+      margin-top: 3px;
+    }
+
+    /* ── Main card ── */
+    .card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    /* ── Info banner ── */
+    .info-banner {
+      padding: 14px 20px;
+      background: rgba(59, 130, 246, 0.07);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .info-banner svg {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: #60a5fa;
+    }
+
+    .info-banner p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.55;
+    }
+
+    /* ── Section headers ── */
+    .section {
+      padding: 24px 24px 0;
+    }
+
+    .section:last-of-type {
+      padding-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Form groups ── */
     .form-group {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
     }
 
     label {
       display: block;
-      margin-bottom: 8px;
+      font-size: 13px;
       font-weight: 600;
-      color: #fff;
-      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 7px;
     }
 
     .help-text {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+      color: var(--text-3);
       margin-top: 6px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     input[type="text"],
     input[type="password"],
     textarea {
       width: 100%;
-      padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #e0e0e0;
-      font-size: 14px;
-      font-family: 'Courier New', monospace;
-      transition: all 0.2s;
+      padding: 10px 13px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 13.5px;
+      font-family: inherit;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 110px;
       resize: vertical;
-      font-family: inherit;
+      line-height: 1.5;
     }
 
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: #8b5cf6;
-      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(139, 92, 246, 0.55);
+      background: rgba(18, 18, 40, 0.9);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
     }
 
     input::placeholder,
     textarea::placeholder {
-      color: rgba(255, 255, 255, 0.3);
+      color: var(--text-3);
     }
 
-    .button-group {
+    /* ── Preset pills ── */
+    .preset-row {
       display: flex;
-      gap: 12px;
-      margin-top: 40px;
-    }
-
-    button {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-      color: white;
-      flex: 1;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: #e0e0e0;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .status-message {
-      padding: 12px 16px;
-      border-radius: 8px;
-      margin-top: 20px;
-      font-size: 14px;
-      display: none;
-    }
-
-    .status-message.success {
-      background: rgba(34, 197, 94, 0.2);
-      border: 1px solid rgba(34, 197, 94, 0.4);
-      color: #86efac;
-      display: block;
-    }
-
-    .status-message.error {
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      color: #fca5a5;
-      display: block;
-    }
-
-    .presets {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 7px;
+      margin-top: 9px;
       flex-wrap: wrap;
     }
 
     .preset-btn {
-      padding: 6px 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 6px;
-      color: #e0e0e0;
+      padding: 5px 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: 20px;
+      color: var(--text-2);
       font-size: 12px;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s;
+      font-family: inherit;
     }
 
     .preset-btn:hover {
-      background: rgba(139, 92, 246, 0.3);
-      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.15);
+      border-color: rgba(139, 92, 246, 0.4);
+      color: #c4b5fd;
     }
 
-    .info-box {
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 30px;
+    /* ── Action bar ── */
+    .action-bar {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
 
-    .info-box h3 {
-      color: #93c5fd;
-      margin-bottom: 8px;
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-primary {
+      flex: 1;
+      padding: 11px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border: none;
+      border-radius: var(--radius);
+      color: white;
       font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
     }
 
-    .info-box p {
-      color: rgba(255, 255, 255, 0.7);
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      padding: 11px 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      color: var(--text-2);
       font-size: 13px;
-      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface);
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    /* ── Status message ── */
+    .status-message {
+      display: none;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .status-message.success {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: var(--radius);
+      color: #86efac;
+      margin: 0 24px 16px;
+    }
+
+    .status-message.error {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: var(--radius);
+      color: #fca5a5;
+      margin: 0 24px 16px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🤖 P-A-L Settings</h1>
-    <p class="subtitle">Configure your Personal AI Listener</p>
+  <div class="page-header">
+    <div class="header-logo">🤖</div>
+    <div class="header-text">
+      <h1>P-A-L Settings</h1>
+      <p>Configure your Personal AI Listener</p>
+    </div>
+  </div>
 
-    <div class="info-box">
-      <h3>Getting Started</h3>
-      <p>P-A-L works with any OpenAI-compatible API. You can use OpenAI, or local models via LM Studio, Ollama, or other providers. Enter your API credentials below to get started.</p>
+  <div class="card">
+    <div class="info-banner">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p>P-A-L works with any OpenAI-compatible API — use OpenAI directly, or local models via LM Studio, Ollama, or other providers. Enter your credentials below to get started.</p>
     </div>
 
     <form id="settings-form">
-      <div class="form-group">
-        <label for="apiUrl">API Endpoint URL</label>
-        <input
-          type="text"
-          id="apiUrl"
-          placeholder="https://api.openai.com/v1/chat/completions"
-          required
-        />
-        <p class="help-text">The chat completions endpoint for your LLM provider</p>
-        <div class="presets">
-          <button type="button" class="preset-btn" data-url="https://api.openai.com/v1/chat/completions">OpenAI</button>
-          <button type="button" class="preset-btn" data-url="http://localhost:1234/v1/chat/completions">LM Studio</button>
-          <button type="button" class="preset-btn" data-url="http://localhost:11434/v1/chat/completions">Ollama</button>
+      <div class="section">
+        <div class="section-title">API Configuration</div>
+
+        <div class="form-group">
+          <label for="apiUrl">Endpoint URL</label>
+          <input
+            type="text"
+            id="apiUrl"
+            placeholder="https://api.openai.com/v1/chat/completions"
+            required
+          />
+          <p class="help-text">The chat completions endpoint for your LLM provider</p>
+          <div class="preset-row">
+            <button type="button" class="preset-btn" data-url="https://api.openai.com/v1/chat/completions">OpenAI</button>
+            <button type="button" class="preset-btn" data-url="http://localhost:1234/v1/chat/completions">LM Studio</button>
+            <button type="button" class="preset-btn" data-url="http://localhost:11434/v1/chat/completions">Ollama</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apiKey">API Key</label>
+          <input
+            type="password"
+            id="apiKey"
+            placeholder="sk-…"
+            required
+          />
+          <p class="help-text">Leave as "none" for local models that don't require authentication</p>
+        </div>
+
+        <div class="form-group">
+          <label for="model">Model Name</label>
+          <input
+            type="text"
+            id="model"
+            placeholder="gpt-3.5-turbo"
+            required
+          />
+          <p class="help-text">e.g. gpt-4o, gpt-3.5-turbo, llama3, mistral</p>
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="apiKey">API Key</label>
-        <input
-          type="password"
-          id="apiKey"
-          placeholder="sk-..."
-          required
-        />
-        <p class="help-text">Your API key (leave as "none" for local models that don't require authentication)</p>
-      </div>
+      <div class="section">
+        <div class="section-title">Behavior</div>
 
-      <div class="form-group">
-        <label for="model">Model Name</label>
-        <input
-          type="text"
-          id="model"
-          placeholder="gpt-3.5-turbo"
-          required
-        />
-        <p class="help-text">The model to use (e.g., gpt-3.5-turbo, gpt-4, llama-3, etc.)</p>
-      </div>
-
-      <div class="form-group">
-        <label for="systemPrompt">System Prompt (AI Personality)</label>
-        <textarea
-          id="systemPrompt"
-          placeholder="You are a sarcastic but friendly AI buddy..."
-        ></textarea>
-        <p class="help-text">Customize your AI buddy's personality. The default makes it sarcastic and conversational.</p>
-      </div>
-
-      <div class="button-group">
-        <button type="submit" class="btn-primary">Save Settings</button>
-        <button type="button" id="reset-btn" class="btn-secondary">Reset to Defaults</button>
+        <div class="form-group">
+          <label for="systemPrompt">System Prompt</label>
+          <textarea
+            id="systemPrompt"
+            placeholder="You are a sarcastic but friendly AI buddy…"
+          ></textarea>
+          <p class="help-text">Define your AI buddy's personality. The default is witty and conversational.</p>
+        </div>
       </div>
 
       <div id="status" class="status-message"></div>
+
+      <div class="action-bar">
+        <button type="submit" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Save Settings
+        </button>
+        <button type="button" id="reset-btn" class="btn-secondary">Reset</button>
+      </div>
     </form>
   </div>
 

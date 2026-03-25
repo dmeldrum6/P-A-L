@@ -20,14 +20,23 @@
     sidebar.innerHTML = `
       <div id="pal-header">
         <h3>🤖 P-A-L</h3>
-        <button id="pal-toggle" title="Minimize">−</button>
+        <button id="pal-toggle" title="Minimize">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
       </div>
       <div id="pal-chat-container">
         <div id="pal-messages"></div>
       </div>
       <div id="pal-input-container">
-        <textarea id="pal-input" placeholder="Type a message..."></textarea>
-        <button id="pal-send">Send</button>
+        <textarea id="pal-input" placeholder="Ask me anything…"></textarea>
+        <button id="pal-send" title="Send message">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
       </div>
       <div id="pal-status"></div>
     `;
@@ -37,7 +46,11 @@
     const restoreBtn = document.createElement('button');
     restoreBtn.id = 'pal-restore';
     restoreBtn.title = 'Restore P-A-L';
-    restoreBtn.textContent = '+';
+    restoreBtn.innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    `;
     restoreBtn.style.display = 'none';
     document.body.appendChild(restoreBtn);
 
@@ -93,16 +106,17 @@
     const toggleBtn = document.getElementById('pal-toggle');
     const restoreBtn = document.getElementById('pal-restore');
 
+    const minusSvg = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
     if (sidebar.classList.contains('minimized')) {
       sidebar.classList.remove('minimized');
       document.body.style.marginRight = '350px';
-      toggleBtn.textContent = '−';
+      toggleBtn.innerHTML = minusSvg;
       toggleBtn.title = 'Minimize';
       restoreBtn.style.display = 'none';
     } else {
       sidebar.classList.add('minimized');
       document.body.style.marginRight = '0';
-      toggleBtn.textContent = '+';
+      toggleBtn.innerHTML = minusSvg;
       toggleBtn.title = 'Expand';
       restoreBtn.style.display = 'flex';
     }

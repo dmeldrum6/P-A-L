@@ -11,16 +11,22 @@ function checkStatus() {
     model: ''
   }, (settings) => {
     if (settings.apiKey && settings.apiUrl && settings.model) {
-      statusDiv.className = 'status configured';
+      statusDiv.className = 'status-card configured';
       statusDiv.innerHTML = `
-        <div class="status-label">✓ Configured</div>
-        <div class="status-text">P-A-L is ready to chat!</div>
+        <div class="status-indicator"></div>
+        <div class="status-body">
+          <div class="label">Configured</div>
+          <div class="desc">P-A-L is ready to chat!</div>
+        </div>
       `;
     } else {
-      statusDiv.className = 'status not-configured';
+      statusDiv.className = 'status-card not-configured';
       statusDiv.innerHTML = `
-        <div class="status-label">⚠ Not Configured</div>
-        <div class="status-text">Please configure your API settings to get started.</div>
+        <div class="status-indicator"></div>
+        <div class="status-body">
+          <div class="label">Not Configured</div>
+          <div class="desc">Please configure your API settings to get started.</div>
+        </div>
       `;
     }
   });
