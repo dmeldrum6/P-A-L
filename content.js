@@ -168,7 +168,7 @@
     lastUrl = url;
     const pageTitle = document.title;
 
-    const message = `The user just navigated to: "${pageTitle}" (${url}). Make a sarcastic comment or ask them what they're up to.`;
+    const message = `The user just navigated to: "${pageTitle}" (${url}). Comment on this or ask them what they're up to.`;
 
     sendToAI(message, true);
   }
