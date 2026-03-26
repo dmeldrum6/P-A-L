@@ -209,6 +209,39 @@
       color: #c4b5fd;
     }
 
+    /* ── Personality pills ── */
+    .personality-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .personality-pill {
+      padding: 7px 15px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: 20px;
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    .personality-pill:hover {
+      background: rgba(139, 92, 246, 0.15);
+      border-color: rgba(139, 92, 246, 0.4);
+      color: #c4b5fd;
+    }
+
+    .personality-pill.active {
+      background: rgba(99, 102, 241, 0.18);
+      border-color: rgba(99, 102, 241, 0.6);
+      color: #a5b4fc;
+    }
+
     /* ── Action bar ── */
     .action-bar {
       padding: 16px 24px;
@@ -364,12 +397,18 @@
         <div class="section-title">Behavior</div>
 
         <div class="form-group">
+          <label>Personality</label>
+          <div class="personality-row">
+            <button type="button" class="personality-pill" data-personality="sarcastic">😏 Sarcastic Buddy</button>
+            <button type="button" class="personality-pill" data-personality="philosopher">🏛️ Philosopher</button>
+            <button type="button" class="personality-pill" data-personality="motivational">🔥 Motivational Coach</button>
+          </div>
           <label for="systemPrompt">System Prompt</label>
           <textarea
             id="systemPrompt"
             placeholder="You are a sarcastic but friendly AI buddy…"
           ></textarea>
-          <p class="help-text">Define your AI buddy's personality. The default is witty and conversational.</p>
+          <p class="help-text">Pick a personality preset or write your own system prompt.</p>
         </div>
       </div>
 
